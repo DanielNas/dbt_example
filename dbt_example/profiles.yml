@@ -1,0 +1,10 @@
+dbt_example:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account  # or oauth / service-account-json
+      project: projeto-dbt-508218
+      dataset: "{{ env_var('DBT_DBNAME', 'dbt_dw') }}"
+      threads: 4
+      keyfile: /home/daniel/.dbt/projeto-dbt-508218-d553890c3d4a.json  # Full path to your JSON key file
